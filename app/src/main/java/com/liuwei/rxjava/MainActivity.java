@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         initView();
         initListener();
-
+        Log.e("test", "add");
     }
 
     private void initView() {
