@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,7 @@ import rx.Subscriber;
 import rx.functions.Action1;
 import rx.functions.Func1;
 
-public class BigHandActivity extends BaseActivity implements View.OnClickListener {
+public class BigHandActivity extends AppCompatActivity implements View.OnClickListener {
     private Button button1;
     private Button button2;
     private Button button3;
@@ -89,11 +90,6 @@ public class BigHandActivity extends BaseActivity implements View.OnClickListene
             }
         });
         tabLayout.setupWithViewPager(mViewPager);
-    }
-
-    @Override
-    protected boolean isSupportSwipeBack() {
-        return super.isSupportSwipeBack();
     }
 
     private void initView() {
