@@ -22,8 +22,7 @@
             android:theme="@style/JK.SwipeBack.Transparent.Theme"><!--动画style-->
         </activity>
         <activity
-            android:name=".ui.BigHandActivity"
-            android:theme="@style/JK.SwipeBack.Transparent.Theme">
+            android:name=".ui.BigHandActivity">
         </activity>
     </application>
 
