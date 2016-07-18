@@ -6,8 +6,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -41,6 +43,9 @@ public class BigHandActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_big_hand);
         initView();
         initListener();
+        //
+        ActionBar mActionBar = getSupportActionBar();
+        mActionBar.setDisplayHomeAsUpEnabled(true);
         //
         tabLayout.setTabTextColors(Color.rgb(108, 108, 108), Color.rgb(206, 61, 58));
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
@@ -90,6 +95,15 @@ public class BigHandActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
         tabLayout.setupWithViewPager(mViewPager);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void initView() {
