@@ -43,7 +43,7 @@ public class BigHandActivity extends AppCompatActivity implements View.OnClickLi
         setContentView(R.layout.activity_big_hand);
         initView();
         initListener();
-        //
+        //set actionbar
         ActionBar mActionBar = getSupportActionBar();
         mActionBar.setDisplayHomeAsUpEnabled(true);
         //
