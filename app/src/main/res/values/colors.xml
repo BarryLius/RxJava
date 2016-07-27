@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="selCol">#cd3d3a</color>
     <color name="noSelCol">#6b6b6b</color>
+    <color name="red_square">#CCFF6464</color>
+    <color name="transparent">#00000000</color>
 </resources>
