@@ -9,9 +9,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.ContextMenu;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.liuwei.rxjava.BaseActivity;
 import com.liuwei.rxjava.R;
@@ -99,12 +102,26 @@ public class BigHandActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-            return true;
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                break;
+            case R.id.item1:
+                Toast.makeText(BigHandActivity.this, "item1 click", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.item2:
+                Toast.makeText(BigHandActivity.this, "item2 click", Toast.LENGTH_SHORT).show();
+                break;
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.bighand_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
 
     private void initView() {
         button1 = (Button) findViewById(R.id.button1);

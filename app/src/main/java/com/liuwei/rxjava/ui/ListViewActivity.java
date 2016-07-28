@@ -3,6 +3,8 @@ package com.liuwei.rxjava.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
+import android.view.ContextMenu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -51,6 +53,7 @@ public class ListViewActivity extends BaseActivity {
                 }
             }
         });
+        registerForContextMenu(listView);
     }
 
     private void initListener() {
@@ -97,8 +100,9 @@ public class ListViewActivity extends BaseActivity {
     }
 
     @Override
-    protected boolean isSupportSwipeBack() {
-        return super.isSupportSwipeBack();
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.bighand_menu, menu);
     }
 
     private void initView() {
@@ -111,6 +115,30 @@ public class ListViewActivity extends BaseActivity {
 
     private void initDate() {
         list = new ArrayList<String>();
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        list.add("6");
+        list.add("7");
+        list.add("8");
+        list.add("9");
+        list.add("10");
+        list.add("11");
+        list.add("12");
+        list.add("1");
+        list.add("2");
+        list.add("3");
+        list.add("4");
+        list.add("5");
+        list.add("6");
+        list.add("7");
+        list.add("8");
+        list.add("9");
+        list.add("10");
+        list.add("11");
+        list.add("12");
         list.add("1");
         list.add("2");
         list.add("3");

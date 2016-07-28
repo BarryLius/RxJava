@@ -12,12 +12,12 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-
 import com.liuwei.rxjava.bean.Stduent;
 import com.liuwei.rxjava.ui.BigHandActivity;
 import com.liuwei.rxjava.ui.ListViewActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import rx.Observable;
@@ -70,10 +70,10 @@ public class MainActivity extends BaseActivity {
         Log.e(">>", "onDestroy");
     }
 
-    @Override
-    protected boolean isSupportSwipeBack() {
-        return false;
-    }
+//    @Override
+//    protected boolean isSupportSwipeBack() {
+//        return false;
+//    }
 
     private void initListener() {
         button.setOnClickListener(new View.OnClickListener() {
