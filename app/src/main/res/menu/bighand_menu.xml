@@ -1,0 +1,12 @@
+<menu xmlns:alpha="http://schemas.android.com/apk/res-auto"
+      xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item1"
+        android:title="aa"
+        alpha:showAsAction="never"/>
+    <item
+        android:id="@+id/item2"
+        android:title="bb"
+        alpha:showAsAction="never"/>
+
+</menu>  
