@@ -4,12 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.liuwei.rxjava.bean.Stduent;
@@ -19,6 +24,8 @@ import com.liuwei.rxjava.ui.ListViewActivity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import rx.Observable;
 import rx.Observer;
@@ -28,7 +35,7 @@ import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private Context mContext;
     private Button button;
@@ -38,6 +45,8 @@ public class MainActivity extends BaseActivity {
     private Button button5;
     private Button button6;
     private ImageView imageView;
+    private ImageView imageView2;
+    private SeekBar seekBar;
     DrawerLayout mDrawerLayout;
     LinearLayout llLeft;
 
@@ -49,6 +58,25 @@ public class MainActivity extends BaseActivity {
         initView();
         initListener();
         Log.e("test", "addcc");
+        seekBar.setMax(85);
+        seekBar.setProgress(0);
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekBar.setProgress(progress);
+                imageView2.getDrawable().setLevel(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
     }
 
     private void initView() {
@@ -60,8 +88,10 @@ public class MainActivity extends BaseActivity {
         button5 = (Button) findViewById(R.id.button5);
         button6 = (Button) findViewById(R.id.button6);
         imageView = (ImageView) findViewById(R.id.imageView);
+        imageView2 = (ImageView) findViewById(R.id.imageView2);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.mDrawerLayout);
         llLeft = (LinearLayout) findViewById(R.id.llLeft);
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
     }
 
     @Override

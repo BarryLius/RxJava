@@ -57,9 +57,21 @@
                 android:layout_height="wrap_content"
                 android:text="bighand"/>
             <!-- -->
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layerType="software"
+                android:src="@drawable/pull_to_refresh_anim_drawable"/>
+
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
 
     </ScrollView>
+
 
     <!--左边页面-->
     <LinearLayout

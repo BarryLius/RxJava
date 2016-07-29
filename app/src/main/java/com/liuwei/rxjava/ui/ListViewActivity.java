@@ -2,11 +2,14 @@ package com.liuwei.rxjava.ui;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.BottomSheetDialog;
 import android.support.v7.app.ActionBar;
 import android.view.ContextMenu;
+import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -25,6 +28,7 @@ public class ListViewActivity extends BaseActivity {
     private Button allSel;
     private Button allNoSel;
     private Button del;
+    private Button down;
     //
     List<String> list;
 
@@ -57,6 +61,23 @@ public class ListViewActivity extends BaseActivity {
     }
 
     private void initListener() {
+        down.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                View view = LayoutInflater.from(mContext).inflate(R.layout.dialog_down, null);
+                ListView listView = (ListView) view.findViewById(R.id.listView);
+                List<String> list = new ArrayList<String>();
+                for (int i = 0; i < 10; i++) {
+                    list.add((i + 1) + "aaaaaaa");
+                }
+                ArrayAdapter adapter = new ArrayAdapter(mContext, android.R.layout.simple_list_item_1, list);
+                listView.setAdapter(adapter);
+                //
+                BottomSheetDialog dialog = new BottomSheetDialog(mContext);
+                dialog.setContentView(view);
+                dialog.show();
+            }
+        });
         allSel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -111,6 +132,8 @@ public class ListViewActivity extends BaseActivity {
         allSel = (Button) findViewById(R.id.allSel);
         allNoSel = (Button) findViewById(R.id.allNoSel);
         del = (Button) findViewById(R.id.del);
+        down = (Button) findViewById(R.id.down);
+
     }
 
     private void initDate() {
